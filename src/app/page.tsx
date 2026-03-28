@@ -1,6 +1,10 @@
+import { Link } from "@/components/ui/link";
+import { paths } from "@/config/paths";
+import { checkLoggedIn } from "@/utils/auth";
 import Image from "next/image";
 
 export default function Home() {
+  const isLoggedIn = checkLoggedIn();
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -24,6 +28,14 @@ export default function Home() {
             Save and see your changes instantly.
           </li>
         </ol>
+
+        <Link href={
+          isLoggedIn
+            ? paths.app.root.getHref()
+            : paths.auth.login.getHref()
+        }>
+          Get started
+        </Link>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
