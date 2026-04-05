@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import { paths } from '@/config/paths';
-//import { LoginForm } from '@/features/auth/components/login-form';
+import { LoginForm } from '@/features/auth/components/login-form';
 
 const LoginPage = () => {
   const router = useRouter();
@@ -11,15 +11,14 @@ const LoginPage = () => {
   const redirectTo = searchParams?.get('redirectTo');
 
   return (
-    // <LoginForm
-    //   onSuccess={() =>
-    //     router.replace(
-    //       `${redirectTo ? `${decodeURIComponent(redirectTo)}` : paths.app.dashboard.getHref()}`,
-    //     )
-    //   }
-    // />
-    <div>Login</div>
-  );
+    <LoginForm
+      onSuccess={() =>
+        router.replace(
+          `${redirectTo ? `${decodeURIComponent(redirectTo)}` : paths.app.dashboard.getHref()}`,
+        )
+      }
+    />
+ );
 };
 
 export default LoginPage;
