@@ -25,3 +25,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.active-link {
+  color: #1976d2;
+  font-weight: 600;
+  background: rgba(25, 118, 210, 0.1);
+  border-radius: 6px;
+}
+
+.main-container{
+  margin-left: 250px;
+}

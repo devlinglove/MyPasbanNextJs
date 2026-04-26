@@ -14,24 +14,22 @@ type LayoutProps = {
 };
 
 export const AuthLayoutComponent = ({ children }: LayoutProps) => {
-  const user = useUser();
+  //const user = useUser();
   const router = useRouter();
   const pathname = usePathname();
   const isLoginPage = pathname === paths.auth.login.getHref();
-  const title = isLoginPage
-    ? 'Log in to your account'
-    : 'Register your account';
+  const title = isLoginPage ? 'Log in to your account' : 'Register your account';
 
   const searchParams = useSearchParams();
   const redirectTo = searchParams?.get('redirectTo');
 
-  useEffect(() => {
-    if (user.data) {
-      router.replace(
-        `${redirectTo ? `${decodeURIComponent(redirectTo)}` : paths.app.dashboard.getHref()}`,
-      );
-    }
-  }, [user.data, router, redirectTo]);
+  // useEffect(() => {
+  //   if (user.data) {
+  //     router.replace(
+  //       `${redirectTo ? `${decodeURIComponent(redirectTo)}` : paths.app.dashboard.getHref()}`,
+  //     );
+  //   }
+  // }, [user.data, router, redirectTo]);
 
   return (
     <div className="flex min-h-screen flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">

@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
   
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(getUserQueryOptions());
-  const dehydratedState = dehydrate(queryClient);
+  // const queryClient = new QueryClient();
+  // await queryClient.prefetchQuery(getUserQueryOptions());
+  // const dehydratedState = dehydrate(queryClient);
 
   return (
     <html lang="en" className={roboto.variable}>
@@ -35,9 +35,9 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <AppProvider>
-              <HydrationBoundary state={dehydratedState}>
+              {/* <HydrationBoundary state={dehydratedState}> */}
                 {children}
-              </HydrationBoundary>
+              {/* </HydrationBoundary> */}
             </AppProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
